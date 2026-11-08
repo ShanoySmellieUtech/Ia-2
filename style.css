@@ -1,0 +1,348 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*---Custom Properties---*/
+:root {
+    --bg-dark: #0d0e21;
+    --bg-header: #171b32;
+    --bg-dropdown: rgba(23, 27, 50, 0.5);
+    --bg-dropdown-hover: rgba(37, 43, 74, 0.8);
+    --text-white: #ffffff;
+    --text-muted: #b0b3c6;
+    --text-purple: #a384ac;
+    --accent-orange: #f47b5e;
+    --accent-yellow: #ffb347;
+    --border-light: rgba(255, 255, 255, 0.2);
+    --border-hover: rgba(255, 255, 255, 0.4);
+}
+
+/*Header and Logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    object-fit: contain;
+}
+
+.logo img {
+    width: 180px;
+    height: 47px;
+
+}
+
+header {
+    background-color: var(--bg-header);
+    color: var(--text-white);
+    padding: 15px 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+/* Body and Background and Layering*/
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-dark); 
+    color: var(--text-white);
+    min-height: 100vh;
+    background-image: 
+        url('../Assets/pattern-lines.svg'),
+        url('../Assets/pattern-squiggly-line-top.svg'),
+        url('../Assets/pattern-squiggly-line-bottom-desktop.svg'),
+        url('../Assets/pattern-circle.svg'),
+        url('../Assets/pattern-circle.svg'),
+        url('../Assets/background-desktop.png');
+    background-size: cover, 40% auto, 40% auto, 17% auto, 17% auto, cover;
+    background-position: center top, top right, bottom left, top left, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
+}
+
+body.ticket-page {
+    color: #ffffff;
+}
+
+/*MAIN LAYOUT & TYPOGRAPHY*/
+section h2 {
+    margin-bottom: 20px;
+    color: #252b4a;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-bottom: 8px;
+    list-style-type: none;
+}
+
+footer {
+    background-color: #171b32;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+    flex: 1;
+    min-height: calc(100vh - 150px);
+}
+
+/* Form Layout */
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px; 
+}
+
+/* Buttons */
+.register-btn {
+    display: inline-block;
+    background-color: var(--accent-yellow);
+    color: var(--bg-header); 
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.register-btn:hover {
+    background-color:var(--text-white);
+}
+
+/* The clickable dashed box */
+.error-message {
+    color: var(--accent-orange);
+    display: none; 
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* AVATAR UPLOAD DROP ZONE */
+.dropdown {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+/* The clickable dashed box */
+#drop-area {
+    width: 50%; 
+    min-height: 120px; 
+    padding: 20px;
+    background-color: var(--bg-dropdown); 
+    border: 2px dashed var(--border-light); 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/*Media Queries for responsiveness*/
+@media (max-width: 600px) {
+    #drop-area {width: 70%;}
+     .ticket-content { padding: 15px; }
+    .user-avatar { width: 45px; height: 45px; }
+    .ticket-number { font-size: 0.9rem; }
+}
+
+#drop-area:hover {
+    background-color: var(--bg-dropdown-hover);
+    border-color: var(--border-hover);
+}
+
+/* Container for the icon and text inside the box */
+#img-view {
+    width: 50%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: rgba(23, 27, 50, 0.5);
+
+}
+
+#avatar {
+    display: none;
+}
+
+/*Ticket Page Layout*/
+.ticket-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.confirmation-text h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--accent-orange);
+    
+}
+
+.confirmation-text p {
+    font-size: 1.1rem;
+    color: #b0b3c6;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.ticket-content :not(.ticket-date) {
+    font-weight: bold;
+}
+
+.email-highlight {
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+.ticket-image-container {
+    position: relative;
+    width: 100%;
+    max-width:600px; 
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+
+}
+
+
+.ticket-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ticket-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 35px; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
+.ticket-top-left {
+    margin-bottom: auto; 
+}
+
+.ticket-user {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+.ticket-side {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    width: 85px; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Ticket Styling --- */
+.ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.ticket-logo {
+    height: 30px; 
+}
+
+.ticket-date {
+    font-family: Arial, sans-serif;
+    font-size: 1rem; 
+
+}
+
+/*-- User avatar styling --*/
+.user-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* --- Ticket Title and User Info Styling --- */
+:where(.ticket-title, .user-info h2) {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+/*-- Github Handle Styling --*/
+.github-handle { 
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    margin: 0; 
+}
+
+/* Groups all three classes together */
+:is(.ticket-date, .github-handle, .ticket-number) {
+    color: var(--text-purple);
+}
+/* --- Ticket Number Styling --- */
+.ticket-number {
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/*focus-visible styles for accessibility*/
+button:focus-visible, #drop-area:focus-visible {
+    outline: 3px solid var(--accent-yellow);
+    outline-offset: 3px;
+}
+

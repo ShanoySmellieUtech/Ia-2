@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Makes webpage responsive on different screeens (control the page's dimensions and scaling) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Webpage title -->
+    <title>Coding Conf 2026 | Ticket</title>
+    <!-- Links the external CSS stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="ticket-page">
+    <!-- Header section containing the Coding Conf logo -->
+    <header>
+    <nav>
+        <a href="index.html">
+        <div class="logo">
+            <img src="../Assets/logo-full.svg" alt="Coding Conf 2026 Logo">
+        </div>
+        </a>
+    </nav>
+    </header>
+
+    <!-- Main Ticket Confirmation Container -->
+    <main class="ticket-container">
+        <div class="confirmation-text">
+            <h1>Congrats, <span class="highlight" id="display-name">Guest!</span><br>Your ticket is ready.</h1>
+            <p>We've emailed your ticket to<br>
+            <span class="email-highlight" id="display-email">your@email.com</span> and will send updates in<br>
+            the run up to the event.</p>
+        
+        <div class="ticket-image-container">
+            <!--  Ticket Image -->
+            <img src="../Assets/pattern-ticket.svg" alt="Ticket Background" class="ticket-bg-img">
+        <div class="ticket-content">
+            <!-- Logo & Event Name -->
+        <div class="ticket-top-left">
+            <div class="ticket-header">
+                <img src="../Assets/logo-mark.svg" alt="Logo" class="ticket-logo">
+                <span class="ticket-title">Coding Conf</span>
+            </div>
+            <p class="ticket-date">Oct 26, 2026 / Papine, Kgn</p>
+        </div>
+
+        <!-- User Information-->
+        <div class="ticket-user">
+            <img src="../Assets/image-avatar.jpg" alt="User Avatar" class="user-avatar" id="display-avatar">
+            <div class="user-info">
+                <h2 id="display-ticket-name">Guest Name</h2>
+                <p class="github-handle">
+                    <img src="../Assets/icon-github.svg" width="14" height="14" alt="GitHub Icon">
+                    <span id="display-github">username</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Random Ticket Number -->
+        <div class="ticket-side">
+            <span class="ticket-number" id="ticket-number">#00000</span>
+        </div>
+
+         </div>
+        </div>
+          
+    </main>
+    <!-- Footer section containing copyright information -->
+    <footer>
+        <p>&copy; 2026 Coding Conf. All Rights Reserved.</p>
+    </footer>
+    <script src="../js/ticket.js"></script>
+</body>
+</html>
